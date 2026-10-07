@@ -5,6 +5,7 @@ Each website lives in its own folder under `sites/` and is a self-contained proj
 | Site | Folder | Preview |
 | --- | --- | --- |
 | Healthcare clinic | `sites/healthcare` | https://grualek.github.io/claude-websites/healthcare/ |
+| Real estate & property management | `sites/real-estate` | https://grualek.github.io/claude-websites/real-estate/ |
 
 The landing page at https://grualek.github.io/claude-websites/ (from `portal/index.html`) links to every site.
 

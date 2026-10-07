@@ -5,7 +5,7 @@ name: Deploy preview to GitHub Pages
 
 on:
   push:
-    branches: [main, claude/healthcare-clinic-prototype-r3t0k6]
+    branches: [main, claude/healthcare-clinic-prototype-r3t0k6, claude/modest-dirac-r5d0iz]
   workflow_dispatch:
 
 permissions:
