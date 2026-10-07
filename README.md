@@ -15,6 +15,13 @@ npm run build     # typecheck + production build to dist/
 npm run preview   # serve the production build
 ```
 
+## Online preview (GitHub Pages)
+
+`.github/workflows/deploy-pages.yml` builds the site and publishes it to GitHub Pages on every push to
+`main` or `claude/healthcare-clinic-prototype-r3t0k6` (or manually from the Actions tab).
+One-time setup: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+The site is then served at `https://<owner>.github.io/<repo>/`.
+
 ## Structure
 
 ```

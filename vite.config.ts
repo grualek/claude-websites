@@ -26,5 +26,7 @@ function seoPlugin(): Plugin {
 }
 
 export default defineConfig({
+  // Relative asset paths so the build works under any sub-path (e.g. GitHub Pages /repo-name/)
+  base: './',
   plugins: [react(), tailwindcss(), seoPlugin()],
 })
