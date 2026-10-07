@@ -1,5 +1,8 @@
 name: Deploy preview to GitHub Pages
 
+# Builds every site in sites/<name>/ and publishes it at
+# https://<owner>.github.io/<repo>/<name>/ ; portal/ becomes the landing page.
+
 on:
   push:
     branches: [main, claude/healthcare-clinic-prototype-r3t0k6]
@@ -22,13 +25,23 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm run build
+      - name: Build all sites
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+          cp -r portal/. _site/
+          for dir in sites/*/; do
+            name=$(basename "$dir")
+            echo "::group::Building $name"
+            (cd "$dir" && npm ci && npm run build)
+            mkdir -p "_site/$name"
+            cp -r "$dir/dist/." "_site/$name/"
+            echo "::endgroup::"
+          done
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: _site
 
   deploy:
     needs: build
