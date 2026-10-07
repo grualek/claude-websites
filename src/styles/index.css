@@ -1,0 +1,145 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Fraunces Variable', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Surfaces */
+  --color-ivory: #f7f4ee;
+  --color-paper: #fcfbf8;
+  --color-sand: #ede7dc;
+  --color-line: #ddd5c6;
+  --color-line-soft: #e8e2d6;
+
+  /* Text — all pass WCAG AA on ivory/paper */
+  --color-ink: #14213a; /* 15.5:1 */
+  --color-ink-soft: #364257; /* 10:1 */
+  --color-muted: #59647a; /* 5.6:1 */
+
+  /* Muted medical blue */
+  --color-blue: #3b6282;
+  --color-blue-deep: #24435d;
+  --color-blue-soft: #dfe7ee;
+  --color-blue-mist: #eef2f5;
+
+  /* Sage */
+  --color-sage: #8aa392;
+  --color-sage-deep: #45634f;
+  --color-sage-soft: #e2eae2;
+
+  /* Warm neutral accent — used sparingly */
+  --color-clay: #b4835c;
+  --color-clay-deep: #8a5a36;
+  --color-clay-soft: #f2e7da;
+
+  --radius-4xl: 2rem;
+  --radius-5xl: 2.75rem;
+
+  --ease-calm: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-ivory font-sans text-ink-soft antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-ink;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    @apply bg-blue-soft text-ink;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-blue);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  /* Lock scroll while a modal dialog is open */
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+
+  dialog::backdrop {
+    background: rgb(20 33 58 / 0.42);
+    backdrop-filter: blur(3px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility font-display-tight {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  letter-spacing: -0.022em;
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: 82rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 3rem;
+  }
+}
+
+/* Dialog enter animation (disabled by reduced-motion rule above) */
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes sheet-in {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+dialog[open].animate-dialog {
+  animation: dialog-in 280ms var(--ease-calm);
+}
+dialog[open].animate-sheet {
+  animation: sheet-in 280ms var(--ease-calm);
+}
