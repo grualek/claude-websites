@@ -1,0 +1,92 @@
+import type { Article } from './types'
+
+/** Journal / travel guides. Each article maps to /journal/{slug}/ for destination & things-to-do search. */
+export const articles: Article[] = [
+  {
+    slug: 'sarenne-coast-travel-guide',
+    category: 'Destination guide',
+    date: '2026-09-12',
+    title: 'A slow traveller’s guide to the Sarenne Coast',
+    summary: 'Where to swim, eat and wander along forty kilometres of coast — written by the people who live here.',
+    readingMinutes: 9,
+    author: 'The Casa Velora concierge team',
+    body: [
+      'Most people arrive on the Sarenne Coast with a list. The best visits, in our experience, end up being about the things that weren’t on it: a lunch that turns into an afternoon, a swim in a cove you stumbled on, a conversation with the man who runs the boat to the island.',
+      'Start in Porto Sarenne. Go early, when the fishing boats are unloading and the market is setting up along the harbour. Have coffee standing at the bar, the way the locals do, and walk up through the lanes to the fishermen’s chapel before the day warms up.',
+      'Spend the afternoon on the water. The coves south of the estate are reachable only by sea or by the cliff path, and they stay quiet even in August.',
+      'For a day inland, drive up into the hills. The medieval towns of Alta Sarenne and Montevelo sit among vineyards and olive groves, and almost every family seems to make its own wine.',
+    ],
+    image: { scene: 'village', mood: 'morning', alt: 'A coastal town on a hillside in morning light' },
+  },
+  {
+    slug: 'what-to-eat-on-the-sarenne-coast',
+    category: 'Local food',
+    date: '2026-08-28',
+    title: 'Ten things to eat before you leave',
+    summary: 'From raw red prawns to the lemon tart our guests ask about every summer.',
+    readingMinutes: 6,
+    author: 'Chef Marta Leone (demo)',
+    body: [
+      'The food of this coast is simple and depends entirely on good ingredients: fish landed that morning, tomatoes that taste of the sun, and olive oil that makes everything better.',
+      'Start with the raw red prawns, eaten with nothing more than a squeeze of lemon. Look for swordfish rolls in the trattorias of the old town, and fresh ricotta still warm from the cheesemaker.',
+      'And save room for the lemon tart. We have been making the same recipe since the estate opened its doors.',
+    ],
+    image: { scene: 'ceramics', mood: 'golden', alt: 'Figs, bread and olive oil on hand-thrown plates' },
+  },
+  {
+    slug: 'autumn-on-the-coast',
+    category: 'Seasonal travel',
+    date: '2026-09-30',
+    title: 'Why autumn is our favourite season',
+    summary: 'Warm sea, empty coves, the olive harvest and the first new oil — the case for travelling in October.',
+    readingMinutes: 5,
+    author: 'The Casa Velora team',
+    body: [
+      'The sea holds its summer warmth well into October, but the crowds have long gone. Days are golden and still; evenings are cool enough for a jumper on the terrace.',
+      'Late autumn brings the olive harvest, and guests are welcome to join us in the groves. There is nothing quite like tasting new oil, still cloudy and peppery, on bread from the oven.',
+    ],
+    image: { scene: 'grove', mood: 'golden', alt: 'Olive trees in autumn light' },
+  },
+  {
+    slug: 'things-to-do-on-the-sarenne-coast',
+    category: 'Things to do',
+    date: '2026-07-14',
+    title: 'Twelve days out from the estate',
+    summary: 'Boat trips, hill towns, wine, walking and a few things you won’t find in the guidebooks.',
+    readingMinutes: 8,
+    author: 'The Casa Velora concierge team',
+    body: [
+      'You could happily spend a week without leaving the estate. But if you want to explore, here are twelve of our favourite days out — from the classic lighthouse walk to a ferry to Isola Pera for lunch.',
+      'Our concierge team can arrange drivers, boats and guides for any of these, and will always tell you honestly when a place is too busy to be worth the trip.',
+    ],
+    image: { scene: 'boat', mood: 'morning', alt: 'A wooden boat moored in a quiet cove' },
+  },
+  {
+    slug: 'the-story-of-the-house',
+    category: 'Property stories',
+    date: '2026-06-02',
+    title: 'Restoring a farmhouse, stone by stone',
+    summary: 'How a 1920s olive farm became Casa Velora — and what we decided not to change.',
+    readingMinutes: 7,
+    author: 'The Velora family (demo)',
+    body: [
+      'When we first saw the house, the roof had fallen in and goats were living in the olive press. What remained were the walls: thick, honey-coloured stone, built by hand by the family who farmed this land for three generations.',
+      'We worked with local masons and craftspeople to restore the buildings using the same stone, lime and chestnut wood. Where something could be repaired, we repaired it.',
+    ],
+    image: { scene: 'arch', mood: 'golden', alt: 'A stone archway framing a view of the sea' },
+  },
+  {
+    slug: 'summer-travel-inspiration',
+    category: 'Travel inspiration',
+    date: '2026-05-20',
+    title: 'The art of doing nothing, well',
+    summary: 'A few thoughts on long lunches, late swims and why the best holidays have empty afternoons.',
+    readingMinutes: 4,
+    author: 'The Casa Velora team',
+    body: [
+      'There is a phrase here for the particular pleasure of idleness. It isn’t laziness — it’s the art of giving an afternoon over to the sea, a book and a long lunch without feeling you should be elsewhere.',
+      'We built Casa Velora to make that easy.',
+    ],
+    image: { scene: 'pool', mood: 'golden', alt: 'A pool edge with loungers and the sea beyond' },
+  },
+]
