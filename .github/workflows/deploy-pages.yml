@@ -2,10 +2,12 @@ name: Deploy preview to GitHub Pages
 
 # Builds every site in sites/<name>/ and publishes it at
 # https://<owner>.github.io/<repo>/<name>/ ; portal/ becomes the landing page.
+# Only the default branch may deploy (github-pages environment protection),
+# so sites reach Pages by merging into it.
 
 on:
   push:
-    branches: [main, claude/healthcare-clinic-prototype-r3t0k6, claude/modest-dirac-r5d0iz]
+    branches: [main, claude/healthcare-clinic-prototype-r3t0k6]
   workflow_dispatch:
 
 permissions:
