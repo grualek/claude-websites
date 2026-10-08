@@ -1,0 +1,115 @@
+import type { Experience } from './types'
+
+/** Demo experiences. Prices, durations and seasons are placeholders to be replaced with the real programme. */
+export const experiences: Experience[] = [
+  {
+    slug: 'wellness',
+    category: 'Wellness',
+    title: 'The stone bathhouse',
+    summary: 'Warm pools, olive-oil massage and slow mornings of yoga on the sea terrace.',
+    description: [
+      'Built into the rock beneath the main house, the bathhouse is a quiet sequence of warm and cool pools, a steam room and two treatment rooms that open to the sound of the sea.',
+      'Treatments use oils pressed from the estate’s own olives and herbs grown in the kitchen garden. Morning yoga is held on the sea terrace most days from spring to autumn.',
+    ],
+    duration: '60–120 min treatments',
+    season: 'All year',
+    groupSize: 'Private or small group',
+    fromPrice: { amount: 95, currency: 'EUR' },
+    includes: ['Access to the thermal pools', 'Herbal tea and fresh fruit', 'Robes and slippers'],
+    image: { scene: 'spa', mood: 'morning', alt: 'A vaulted stone bathhouse with a still pool lit from above' },
+  },
+  {
+    slug: 'food-and-dining',
+    category: 'Food & Dining',
+    title: 'Market morning with our chef',
+    summary: 'Shop the Porto Sarenne market at dawn, then cook — and eat — lunch in the estate kitchen.',
+    description: [
+      'Meet our chef at the harbour as the boats come in. Walk the market stalls, taste cheese, oil and cured fish, and choose what goes into lunch.',
+      'Back at the estate, cook together in the open kitchen and sit down to the meal on the garden terrace.',
+    ],
+    duration: '5 hours',
+    season: 'Tuesday & Saturday, April–October',
+    groupSize: 'Up to 8 guests',
+    fromPrice: { amount: 140, currency: 'EUR' },
+    includes: ['Market tastings', 'Hands-on cooking class', 'Lunch with local wines', 'Recipe cards to take home'],
+    image: { scene: 'market', mood: 'morning', alt: 'Market stalls of lemons, tomatoes and bread under striped awnings' },
+  },
+  {
+    slug: 'adventure',
+    category: 'Adventure',
+    title: 'The lighthouse path',
+    summary: 'A guided coastal walk along the cliffs to the old lighthouse, with a swim stop in a hidden cove.',
+    description: [
+      'The old fishermen’s path follows the cliffs south from the estate to the Capo Sarenne lighthouse. Our guide knows every viewpoint, wild herb and swimming spot along the way.',
+      'Moderate walking with some steep sections; good shoes recommended. The boat collects you at the lighthouse for the return.',
+    ],
+    duration: '4 hours',
+    season: 'March–November',
+    groupSize: '2–10 guests',
+    fromPrice: { amount: 75, currency: 'EUR' },
+    includes: ['Local guide', 'Picnic and water', 'Boat return to the estate'],
+    image: { scene: 'trail', mood: 'golden', alt: 'A narrow cliff path leading toward a white lighthouse above the sea' },
+  },
+  {
+    slug: 'culture',
+    category: 'Culture',
+    title: 'The old town after dark',
+    summary: 'Chapels, workshops and the stories behind the coast, with an evening aperitivo in the square.',
+    description: [
+      'A local historian leads a slow walk through the lanes of the old town as the day cools: the fishermen’s chapel, a ceramics workshop still run by the same family, and the view from the castle walls.',
+      'The walk finishes with an aperitivo in the main square as the lights come on.',
+    ],
+    duration: '3 hours',
+    season: 'All year, evenings',
+    groupSize: 'Up to 12 guests',
+    fromPrice: { amount: 60, currency: 'EUR' },
+    includes: ['Local historian', 'Workshop visit', 'Aperitivo'],
+    image: { scene: 'village', mood: 'dusk', alt: 'A whitewashed hill town with a church dome at dusk' },
+  },
+  {
+    slug: 'nature',
+    category: 'Nature',
+    title: 'Harvest in the olive groves',
+    summary: 'Join the autumn harvest, follow the olives to the press and taste the new oil with bread from our oven.',
+    description: [
+      'The estate’s groves hold several hundred trees, some of them centuries old. In late autumn guests are welcome to join the harvest alongside the team who look after them.',
+      'Afterwards, visit the local press and taste the new season’s oil — bright green and peppery — with warm bread.',
+    ],
+    duration: 'Half day',
+    season: 'Late October–November',
+    groupSize: 'Up to 10 guests',
+    includes: ['Harvest with the grove team', 'Visit to the local press', 'Oil tasting', 'A bottle of new-season oil'],
+    image: { scene: 'grove', mood: 'golden', alt: 'Silver-green olive trees on terraced land in late-afternoon light' },
+  },
+  {
+    slug: 'private-experiences',
+    category: 'Private Experiences',
+    title: 'Sunset on the water',
+    summary: 'A wooden boat, a skipper who grew up on this coast, and the bay to yourselves as the sun goes down.',
+    description: [
+      'Board the estate’s restored wooden boat at our jetty for an evening on the water. Swim in a cove only reachable from the sea, then drift back as the sun drops behind the headland.',
+      'Chilled wine and small plates from the kitchen are served on board.',
+    ],
+    duration: '3 hours',
+    season: 'May–October',
+    groupSize: 'Private, up to 6 guests',
+    fromPrice: { amount: 480, currency: 'EUR' },
+    includes: ['Private skipper', 'Swim stop', 'Wine and small plates', 'Towels and snorkel gear'],
+    image: { scene: 'boat', mood: 'dusk', alt: 'A wooden boat on a calm sea at sunset' },
+  },
+]
+
+/** Large image-led feature ("More than a place to stay") */
+export const featuredExperience = {
+  eyebrow: 'Featured experience',
+  title: 'More than a place to stay.',
+  name: 'The long table',
+  body: 'On summer evenings we set a single table beneath the oldest trees in the grove. Lanterns in the branches, a menu cooked over olive wood, wines from the hills behind you — and nothing else for miles but the sound of cicadas and the sea.',
+  details: [
+    { label: 'When', value: 'Thursdays, June–September' },
+    { label: 'Duration', value: 'From 19:30, around 3 hours' },
+    { label: 'Guests', value: 'Shared table or private' },
+    { label: 'From', value: '€120 per guest' },
+  ],
+  image: { scene: 'long-table', mood: 'dusk', alt: 'A long dinner table set with lanterns beneath olive trees at dusk' } as const,
+}

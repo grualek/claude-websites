@@ -1,0 +1,274 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Cormorant Garamond Variable', 'Cormorant Garamond', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-sans: 'Manrope Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Surfaces — warm ivory & sand */
+  --color-ivory: #f6f1e8;
+  --color-paper: #fbf8f2;
+  --color-sand: #e8dcc6;
+  --color-sand-deep: #d9c7a7;
+  --color-line: #d6c9b2;
+  --color-line-soft: #e6dccb;
+
+  /* Text — all pass WCAG AA on ivory / paper / sand */
+  --color-ink: #23211e; /* deep charcoal */
+  --color-ink-soft: #3a3631;
+  --color-muted: #645c51; /* 5.8:1 on ivory, 4.85:1 on sand */
+
+  /* Terracotta / clay — `clay` is AA for text + buttons; `clay-light` is decorative or on dark */
+  --color-clay: #9a4b2a;
+  --color-clay-hover: #843f22;
+  --color-clay-light: #d98a62;
+  --color-clay-soft: #f0dccd;
+
+  /* Muted olive */
+  --color-olive: #5e6247;
+  --color-olive-deep: #44482f;
+  --color-olive-soft: #d6d4bd;
+
+  /* Dark surfaces */
+  --color-charcoal: #23211e;
+  --color-charcoal-soft: #2f2c28;
+  --color-charcoal-line: #46413a;
+  --color-on-dark: #f3ede2;
+  --color-on-dark-muted: #c8bfb0; /* 8.8:1 on charcoal */
+
+  --ease-calm: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-ivory font-sans text-ink-soft antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-ink;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    @apply bg-clay-soft text-ink;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-clay);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .on-dark :focus-visible {
+    outline-color: var(--color-clay-light);
+  }
+
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+
+  dialog::backdrop {
+    background: rgb(35 33 30 / 0.6);
+    backdrop-filter: blur(4px);
+  }
+
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23645c51' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    padding-right: 2.25rem;
+  }
+
+  input[type='date'] {
+    min-width: 0;
+  }
+  input[type='date']::-webkit-calendar-picker-indicator {
+    opacity: 0.55;
+    cursor: pointer;
+  }
+
+  summary {
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Oversized editorial serif */
+@utility font-editorial {
+  font-family: var(--font-display);
+  font-weight: 450;
+  letter-spacing: -0.015em;
+  line-height: 0.98;
+  font-variant-numeric: lining-nums;
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: 92rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 3.5rem;
+  }
+}
+
+@utility section-y {
+  padding-block: 5rem;
+  @media (width >= 64rem) {
+    padding-block: 8.5rem;
+  }
+}
+
+/* Film grain over illustrated imagery — one cached data URI, cheap to paint */
+@utility grain {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.27 0 0 0 0 0.2 0 0 0 0.24 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* Demo placeholders that a real business will replace (policies, times, prices) */
+@utility placeholder-token {
+  background: color-mix(in srgb, var(--color-clay-soft) 70%, transparent);
+  border-bottom: 1px dashed var(--color-clay);
+  padding-inline: 0.2em;
+  color: var(--color-ink);
+  border-radius: 1px;
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes sheet-in {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes slow-zoom {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+dialog[open].animate-dialog {
+  animation: dialog-in 360ms var(--ease-soft);
+}
+dialog[open].animate-sheet {
+  animation: sheet-in 360ms var(--ease-soft);
+}
+.animate-fade-up {
+  animation: fade-up 1100ms var(--ease-soft) both;
+}
+.animate-slow-zoom {
+  animation: slow-zoom 9s var(--ease-calm) both;
+}
+
+/* Scroll-reveal: content is visible by default; only hidden once JS opts the page in. */
+.js-reveal [data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 1000ms var(--ease-soft),
+    transform 1000ms var(--ease-soft);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.js-reveal [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Image hover — slow, subtle zoom inside a cropped frame */
+.media-zoom > * {
+  transition: transform 1400ms var(--ease-soft);
+}
+.group:hover .media-zoom > *,
+.group:focus-within .media-zoom > * {
+  transform: scale(1.04);
+}
+
+/* Horizontal snap rail (mobile cards) without visible scrollbars */
+.rail {
+  scrollbar-width: none;
+}
+.rail::-webkit-scrollbar {
+  display: none;
+}
