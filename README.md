@@ -9,6 +9,7 @@ Each website lives in its own folder under `sites/` and is a self-contained proj
 | Law firm & professional services | `sites/legal` | https://grualek.github.io/claude-websites/legal/ |
 | Hospitality & tourism | `sites/hospitality-and-tourism` | https://grualek.github.io/claude-websites/hospitality-and-tourism/ |
 | Manufacturing & industrial | `sites/manufacturing` | https://grualek.github.io/claude-websites/manufacturing/ |
+| Education | `sites/education` | https://grualek.github.io/claude-websites/education/ |
 
 The landing page at https://grualek.github.io/claude-websites/ (from `portal/index.html`) links to every site.
 
